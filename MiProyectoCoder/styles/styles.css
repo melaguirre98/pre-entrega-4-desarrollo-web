@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=BJCree:wght@400;500;600;700&family=Kedebideri:wght@400;500;600;700;800;900&display=swap');
-
-/*GLOBAL*/
+/* GLOBAL */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-/*ESTILOS BASE Y TIPOGRAFIA*/
+/* ESTILOS BASE Y TIPOGRAFIA */
 body {
     font-family: 'Kedebideri', 'Poppins', sans-serif;
     font-size: 14px;
@@ -15,39 +13,33 @@ body {
     color: #2b2b2b;
     background-color: #f7f3ef;
 }
-
 h1 {
     font-family: 'BJCree', serif;
     font-size: 1.8rem;
     font-weight: 700;
-    color: #3c2218; /* Primario: Café Oscuro HEX */
+    color: #3c2218;
     margin-bottom: 0.5rem;
 }
-
 h2 {
     font-family: 'Kedebideri', serif;
     font-size: 1.8rem;
     font-weight: 600;
-    color: #8c4a27; /* Secundario: Terracota HEX */
+    color: #8c4a27;
     margin-bottom: 0.75rem;
 }
-
 h3 {
     font-family: 'Kedebideri', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
-    color: #d97736; /* Acento: Caramelo HEX */
+    color: #d97736;
     margin-bottom: 0.5rem;
 }
-
 p {
     font-size: 1rem;
     font-weight: 400;
     margin-bottom: 1rem;
     color: #2b2b2b;
 }
-
-
 /* HEADER */
 .header-principal {
     background-color: #3c2218; 
@@ -55,41 +47,34 @@ p {
     padding: 2rem 1rem;
     text-align: center;
 }
-
 .header-principal h1 {
     color: #f7f3ef;
 }
-
 .header-principal img {
     max-width: 90px;
     height: auto;
     margin-bottom: 0.5rem;
 }
-
-
-/* NAV */
+/* NAV (Mobile-First) */
 .nav-principal {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     gap: 1rem;
     align-items: center;            
     max-width: 1100px;
     margin: 0 auto;
     width: 100%;
 }
-
 .brand-container {
     display: flex;
     align-items: center;
     gap: 0.8rem;
     text-decoration: none;
 }
-
 .brand-container img {
     max-width: 50px;
     height: auto;
 }
-
 .nav-lista {
     list-style: none;
     display: flex;
@@ -97,34 +82,39 @@ p {
     justify-content: center;
     gap: 1rem;
 }
-
 .nav-enlace {
     color: #f7f3ef;
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
 }
-
 .nav-enlace:hover {
     color: #d97736;
 }
-
-/*CONTENIDO*/
+/* ASIGNACION DE AREAS PARA CSS GRID */
+.seccion-propuesta {
+    grid-area: propuesta;
+}
+.seccion-destacados {
+    grid-area: destacados;
+}
+/* CONTENIDO PRINCIPAL (Mobile-First: 1 columna con Grid Areas apiladas) */
 .contenido-principal {
     max-width: 900px;
     margin: 2rem auto;
     padding: 0 1rem;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-areas:
+        "propuesta"
+        "destacados";
+    grid-template-columns: 1fr;
     gap: 2rem;
 }
-
 .seccion-contenido {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
-
 /* TARJETAS */
 .tarjeta-articulo {
     background-color: #ffffff;
@@ -132,16 +122,13 @@ p {
     border-radius: 8px;
     border-left: 5px solid #d97736;
 }
-
 .tarjeta-articulo ul, 
 .tarjeta-articulo ol {
     margin-left: 1.5rem;
 }
-
 .tarjeta-articulo li {
     margin-bottom: 0.4rem;
 }
-
 .tarjeta-articulo img {
     width: 100%;
     max-width: 450px;
@@ -151,12 +138,10 @@ p {
     display: block;
     margin-top: 0.8rem;
 }
-
 figure {
     margin: 1.5rem 0;
     text-align: center;
 }
-
 figure img {
     width: 100%;
     max-width: 550px;
@@ -164,15 +149,13 @@ figure img {
     object-fit: cover;
     border-radius: 8px;
 }
-
 figcaption {
     font-size: 0.85rem;
     color: #666666;
     font-style: italic;
     margin-top: 0.5rem;
 }
-
-/*LISTA DE SUCURSALES*/
+/* LISTA DE SUCURSALES */
 .lista-sucursal {
     list-style: none;
     padding-left: 0;
@@ -182,12 +165,10 @@ figcaption {
     flex-direction: column;
     gap: 1.5rem;
 }
-
 .lista-sucursal li {
     margin-bottom: 1rem;
 }
-
-/*FOOTER*/
+/* FOOTER (Mobile-First) */
 .pie-pagina {
     background-color: #3c2218;
     color: #f7f3ef;
@@ -199,56 +180,44 @@ figcaption {
     align-items: center;
     gap: 1rem;
 }
-
 .pie-pagina p {
     color: #f7f3ef;
     font-size: 0.9rem;
     margin-bottom: 0;
 }
-
 .pie-pagina ul {
     list-style: none;
     display: flex;
     gap: 1.5rem;
 }
-
 .pie-pagina a {
     color: #d97736;
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 600;
 }
-
 .pie-pagina a:hover {
     text-decoration: underline;
 }
-
-/* Tablet y Desktop (a partir de 768px) */
-@media (min-width: 768px) {
-    /* La navegación vuelve a estar en fila (logo a la izquierda, enlaces a la derecha) */
+/* RESPONSIVE DESIGN (MEDIA QUERY OBLIGATORIA: 1024px)*/
+@media (min-width: 1024px) {
+    /* Barra de navegación horizontal */
     .nav-principal {
         flex-direction: row;
         justify-content: space-between;
     }
-    /* Convertimos el contenedor principal en un Grid de 2 columnas */
+    /* Grid reorganizado en 2 columnas mediante áreas */
     .contenido-principal {
-        display: grid;
-        grid-template-columns: 2fr 1fr; /* Columna principal más ancha, destacados al costado */
-        align-items: start;
+        grid-template-areas: "propuesta destacados";
+        grid-template-columns: 2fr 1fr;
         max-width: 1100px;
+        gap: 2.5rem;
+        align-items: start;
     }
-    /* El footer pasa de columna a fila */
+    /* Footer horizontal */
     .pie-pagina {
         flex-direction: row;
         justify-content: space-between;
         padding: 1.5rem 2rem;
     }
 }
-/* Pantallas grandes (Desktop / 1024px o más) */
-@media (min-width: 1024px) {
-    .contenido-principal {
-        gap: 3rem;
-    }
-}
-
-
