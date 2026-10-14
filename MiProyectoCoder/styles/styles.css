@@ -50,7 +50,7 @@ p {
 
 /* HEADER */
 .header-principal {
-    background-color: #3c2218; /* Primario HEX */
+    background-color: #3c2218; 
     color: #f7f3ef;
     padding: 2rem 1rem;
     text-align: center;
@@ -70,7 +70,8 @@ p {
 /* NAV */
 .nav-principal {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; 
+    gap: 1rem;
     align-items: center;            
     max-width: 1100px;
     margin: 0 auto;
@@ -92,8 +93,9 @@ p {
 .nav-lista {
     list-style: none;
     display: flex;
-    align-items: center;
-    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .nav-enlace {
@@ -221,6 +223,32 @@ figcaption {
     text-decoration: underline;
 }
 
-
+/* Tablet y Desktop (a partir de 768px) */
+@media (min-width: 768px) {
+    /* La navegación vuelve a estar en fila (logo a la izquierda, enlaces a la derecha) */
+    .nav-principal {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    /* Convertimos el contenedor principal en un Grid de 2 columnas */
+    .contenido-principal {
+        display: grid;
+        grid-template-columns: 2fr 1fr; /* Columna principal más ancha, destacados al costado */
+        align-items: start;
+        max-width: 1100px;
+    }
+    /* El footer pasa de columna a fila */
+    .pie-pagina {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1.5rem 2rem;
+    }
+}
+/* Pantallas grandes (Desktop / 1024px o más) */
+@media (min-width: 1024px) {
+    .contenido-principal {
+        gap: 3rem;
+    }
+}
 
 
