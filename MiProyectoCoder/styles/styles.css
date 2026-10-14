@@ -199,9 +199,7 @@ figcaption {
 .pie-pagina a:hover {
     text-decoration: underline;
 }
-/* ===================================================
-   RESPONSIVE DESIGN (MEDIA QUERY OBLIGATORIA: 1024px)
-   =================================================== */
+/* RESPONSIVE DESIGN (MEDIA QUERY OBLIGATORIA: 1024px)*/
 @media (min-width: 1024px) {
     /* Barra de navegación horizontal */
     .nav-principal {
